@@ -10,17 +10,18 @@ if (productId) {
             // Tìm sản phẩm có id khớp với productId
             const product = coffee.find(item => item.id == productId);
 
+            
             if (product) {
                 // Đổ dữ liệu sản phẩm vào trang chi tiết
-                document.querySelector('.product-title').innerText = product.title;
-                document.querySelector('.product-image').src = product.image;
-                document.querySelector('.product-price').innerText = `$${product.price.toFixed(2)}`;
-                document.querySelector('.product-description').innerText = product.description;
+                document.querySelector('#product-title').innerText = product.title;
+                document.querySelector('#product-image').src = product.image;
+                document.querySelector('#product-price').innerText = `$${product.price.toFixed(2)}`;
+                document.querySelector('#product-description').innerText = product.description;
             } else {
                 console.error('Không tìm thấy sản phẩm');
             }
         })
-        .catch(error => console.error('Lỗi khi lấy dữ liệu:', error));
+        .catch(error => console.error(error));
 } else {
     console.error('Không tìm thấy id sản phẩm trong URL');
 }
